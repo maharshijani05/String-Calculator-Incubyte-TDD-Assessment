@@ -1,5 +1,7 @@
+import re
+
 def add(numbers: str) -> int:
     if numbers == "":
         return 0
-    num_list = map(int, numbers.split(","))
-    return sum(num_list)
+    split_numbers = re.split(",|\n", numbers)
+    return sum(map(int, split_numbers))
