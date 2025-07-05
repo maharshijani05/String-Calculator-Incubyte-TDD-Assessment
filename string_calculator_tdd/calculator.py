@@ -10,8 +10,9 @@ def add(numbers: str) -> int:
         delimiter_line = parts[0][2:]
         numbers = parts[1]
 
-        if delimiter_line.startswith("[") and delimiter_line.endswith("]"):
-            delimiter = re.escape(delimiter_line[1:-1]) 
+        if delimiter_line.startswith("["):
+            delimiters = re.findall(r"\[(.*?)\]", delimiter_line)
+            delimiter = "|".join(map(re.escape, delimiters))
         else:
             delimiter = re.escape(delimiter_line)
 
