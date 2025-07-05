@@ -44,3 +44,7 @@ def test_multiple_long_delimiters():
     assert add("//[***][%%]\n1***2%%3") == 6
     assert add("//[--][+++]\n4--5+++6") == 15
     assert add("//[abc][def]\n1abc2def3") == 6
+
+def test_only_delimiters():
+    assert add("//[***]\n") == 0
+    assert add("//;\n") == 0

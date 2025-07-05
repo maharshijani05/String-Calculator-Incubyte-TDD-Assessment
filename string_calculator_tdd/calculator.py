@@ -16,7 +16,7 @@ def add(numbers: str) -> int:
         else:
             delimiter = re.escape(delimiter_line)
 
-    nums = list(map(int, re.split(delimiter, numbers)))
+    nums = [int(n) for n in re.split(delimiter, numbers) if n != '']
 
     negatives = [n for n in nums if n < 0]
     if negatives:
