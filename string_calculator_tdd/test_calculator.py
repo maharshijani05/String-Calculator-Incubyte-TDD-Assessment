@@ -39,3 +39,8 @@ def test_multiple_delimiters():
     assert add("//[;][%]\n1;2%3;4") == 10
     assert add("//[;][%]\n1;2%3;4;1000") == 1010
     assert add("//[;][%]\n1;2%3;4;1001") == 10
+
+def test_multiple_long_delimiters():
+    assert add("//[***][%%]\n1***2%%3") == 6
+    assert add("//[--][+++]\n4--5+++6") == 15
+    assert add("//[abc][def]\n1abc2def3") == 6
