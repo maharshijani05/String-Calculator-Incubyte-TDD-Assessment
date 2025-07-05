@@ -14,4 +14,7 @@ def add(numbers: str) -> int:
     negatives = [n for n in nums if n < 0]
     if negatives:
         raise Exception("negative numbers not allowed " + ",".join(map(str, negatives)))
+    
+    nums = [n for n in nums if n <= 1000]
+    
     return sum(nums)
