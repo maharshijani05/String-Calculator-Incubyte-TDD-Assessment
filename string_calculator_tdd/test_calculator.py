@@ -48,3 +48,7 @@ def test_multiple_long_delimiters():
 def test_only_delimiters():
     assert add("//[***]\n") == 0
     assert add("//;\n") == 0
+
+def test_multiply():
+    assert add("2*3") == 6
+    assert add("2*3*6") == 36

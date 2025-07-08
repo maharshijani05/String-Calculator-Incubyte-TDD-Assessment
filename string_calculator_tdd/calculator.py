@@ -15,6 +15,14 @@ def add(numbers: str) -> int:
             delimiter = "|".join(map(re.escape, delimiters))
         else:
             delimiter = re.escape(delimiter_line)
+    else:
+        if numbers.find("*") > 0:
+            length = numbers.count("*") + 1
+            newNums = numbers.split("*")
+            ans = 1
+            for i in range(length):
+                ans = ans*int(newNums[i][0])
+            return ans
 
     nums = [int(n) for n in re.split(delimiter, numbers) if n != '']
 
